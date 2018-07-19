@@ -1,0 +1,37 @@
+.bg-white{
+  background-color: white;
+  border-color: rgb(211, 208, 208);
+  color: black
+}
+.show>.btn-primary.dropdown-toggle{
+    color: black;
+    border: none;
+}
+.btn:focus{
+box-shadow: unset;
+}
+.submit{
+    position: absolute;
+    left: 5px;
+    bottom: 20px;
+}
+.submit_button{
+    width: 100px;
+    margin: 10px 0;
+    margin-bottom: 0;
+    background-color: transparent;
+    color: #f63d60;
+    border: 1px solid #f63d60;
+    padding: 4px 0;
+    cursor: pointer;
+}
+.submit-color{
+    border: 1px solid #33a3a3;
+    color: #33a3a3;
+}
+.fa-star{
+    color: gray;
+    margin-right: 5px;
+} .rate{
+    color:#f63d60;
+}

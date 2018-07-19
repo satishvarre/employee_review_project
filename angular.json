@@ -5,7 +5,7 @@
   "projects": {
     "testproject": {
       "root": "",
-      "sourceRoot": "src",
+      "sourceRoot": "client/src",
       "projectType": "application",
       "prefix": "app",
       "schematics": {},
@@ -14,16 +14,16 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/testproject",
-            "index": "src/index.html",
-            "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "src/tsconfig.app.json",
+            "index": "client/src/index.html",
+            "main": "client/src/main.ts",
+            "polyfills": "client/src/polyfills.ts",
+            "tsConfig": "client/src/tsconfig.app.json",
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
+              "client/src/favicon.ico",
+              "client/src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "client/src/styles.css"
             ],
             "scripts": []
           },

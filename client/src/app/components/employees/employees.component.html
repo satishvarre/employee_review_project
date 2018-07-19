@@ -1,0 +1,55 @@
+<div  class="container-fluid mt-3 pl-5 pr-5">
+  <div>
+    <div class="add-user" [routerLink]="['/adduser']">
+   <span>  + add </span>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>User Name</th>
+          <th>designation</th>
+          <!-- <th>Report To</th> -->
+          <th>Email</th>
+          <th>Mobile Number</th>
+          <th> Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor=" let item of userData ">
+          <td>{{item.name}}</td>
+          <td>{{item.role}}</td>
+          <!-- <td>prakhar</td> -->
+           <td>{{item.email}}</td>
+           <td>{{item.mobile}}</td>
+           <td><span class="action">Edit</span> <span data-toggle="modal" data-target="#myModal" class="action">Delete</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Delete Employee</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body" style="text-align: center;"> 
+          <span> Are you want delete Employee</span> <br>
+          <br>
+            <i style="font-size:24px;color:red" class="fa fa-warning"></i>
+
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" style="background-color: gray;border-color: gray;" data-dismiss="modal">No</button>
+          <button class="btn btn-danger" data-dismiss="modal" > yes</button>
+        </div>
+        
+      </div>
+    </div>

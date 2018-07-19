@@ -1,0 +1,44 @@
+<section class="login">
+<div class="row">
+  <div class="col-md-8 ">
+    <div class="bgimage">
+
+    </div>
+  </div>
+  <div class="col-md-4 plr mb-3">
+    <form (ngSubmit)="login()" >
+      <div class="col mb-5">
+        <h2 style="text-align:center">Employee Review</h2>
+      </div>
+      <div class="col-md-12 mt-3">
+        <div class="form-group ">
+
+          <input [(ngModel)]="model.email" type="text" class="form-control inputCheck" id="email" name="email" #email="ngModel" required>
+          <label class="placeholder" for="email">Email </label>
+          <span class="bar"></span>
+          <!-- <span  *ngIf="iswrong" class="error-msg">Invalid User</span> -->
+        </div>
+        <div class="form-group mt-5">
+          <input [(ngModel)]="model.password" type="password" class="form-control inputCheck" name="password" #password="ngModel" required>
+          <label class="placeholder" for="pwd">Password</label>
+          <span class="bar"></span>
+          <!-- <span *ngIf="iswrong" class="error-msg">Invalid Credentials</span> -->
+        </div>
+      </div>
+      <!-- <div class="col-md-12 mt-5">
+        <div class="row">
+          <div class="col-md-6 remember" style="padding-left: 35px">
+            <span class="checkbefore" (click)="rememberme($event)"></span> Remember Me</div>
+          <div class="col-md-6 remember">
+            <div class="float-right foyr-pink" data-toggle="modal" data-target="#myModal" style="cursor: pointer;">Forgot password ?</div>
+          </div>
+        </div>
+      </div> -->
+      <div class="col-md-12 mt-5">
+        <button class="submit" class="login-btn foyr-bg-pink"> Login</button>
+      </div>
+  
+    </form>
+  </div>
+</div>
+</section>

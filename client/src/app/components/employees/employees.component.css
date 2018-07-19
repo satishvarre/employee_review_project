@@ -1,0 +1,25 @@
+.action{
+    border: 1px solid rgb(184, 182, 182);
+    cursor: pointer;
+    margin: 0 2px;
+    padding: 5px;
+}
+.add-user{
+    float: right;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+.add-user span{
+    width: 80px;
+    border: 1px solid #ef4b6e;
+    padding: 5px 10px;
+    color: #ef4b6e;
+}
+.table{
+    border-bottom: 1px solid #dee2e6;
+  
+}
+.btn{
+    min-width: 100px;
+}

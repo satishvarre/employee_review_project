@@ -1,0 +1,73 @@
+<section>
+
+  <nav class="navbar product-navbar">
+
+    <span>
+      <img src="./assets/images/Back.svg" alt="" (click)="backClicked()" style="cursor: pointer; height:18px;">
+      <span></span> &nbsp; Add Employee</span>
+    <span (click)="backClicked()" class="float-right" style="cursor: pointer;">&#10006;</span>
+  </nav>
+  <div class="container mt-3">
+    <form (ngSubmit)="save()" #form="ngForm" novalidate>
+      <div class="row">
+        <div class="col-md-4 mt-3 mb-3">
+          <div class="form-group">
+            <label>
+              Employee Name
+            </label>
+            <input type="text" [(ngModel)]="user.name" class="form-control"  name="name" #name="ngModel" required>
+            <span style="color:red" *ngIf="name.invalid  && name.dirty">name is mandatory</span>
+          </div>
+        </div>
+        <div class="col-md-4 mt-3 mb-3">
+            <div class="form-group">
+                <label>
+                 Email
+                </label>
+                <input type="text" [(ngModel)]="user.email" class="form-control"  name="email" #email="ngModel" required>
+                <span style="color:red" *ngIf="email.invalid  && email.dirty">email is mandatory</span>
+              </div>
+        </div>
+        <div class="col-md-4 mt-3 mb-3">
+            <div class="form-group">
+                <label>
+                  Employee Mobile
+                </label>
+                <input type="number" [(ngModel)]="user.mobile" class="form-control"  name="mobile" #mobile="ngModel" required>
+                <span style="color:red" *ngIf="mobile.invalid  && mobile.dirty">mobile number is mandatory</span>
+              </div>
+        </div>
+        <div class="col-md-4  mb-3">
+            <div class="form-group">
+                <label>
+                  Employee Role
+                </label>
+                <input type="text"[(ngModel)]="user.role" class="form-control"  name="role" #role="ngModel" required>
+                <span style="color:red" *ngIf="role.invalid  && role.dirty">role is mandatory</span>
+              </div>
+        </div>
+        <div class="col-md-4  mb-3">
+            <div class="form-group">
+                <label>
+                  Employee password
+                </label>
+                <input type="password" [(ngModel)]="user.pass1" class="form-control"  name="pass1" #pass1="ngModel" required>
+                <span style="color:red" *ngIf="pass1.invalid  && pass1.dirty">password is mandatory</span>
+              </div>
+        </div>
+        <div class="col-md-4  mb-3">
+            <div class="form-group">
+                <label>
+                  Employee Retype Password
+                </label>
+                <input type="password" [(ngModel)]="user.pass2" class="form-control"  name="pass2" #pass2="ngModel" required>
+                <span style="color:red" *ngIf="pass2.invalid  && pass2.dirty">password is mandatory</span>
+              </div>
+        </div>
+        <div class="col-md-4  mb-3 float-right">
+          <button type="submit" [disabled]="form.invalid">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>

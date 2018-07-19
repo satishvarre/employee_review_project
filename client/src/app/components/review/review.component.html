@@ -1,0 +1,53 @@
+<section class="container-fluid mt-3 pl-5 pr-5">
+  <div>
+    <div class="dropdown">
+      <button type="button" class="btn  dropdown-toggle bg-white" data-toggle="dropdown">
+        Select Employee
+      </button>
+      <div class="dropdown-menu">
+        <div class="dropdown-item" *ngFor=" let item of userData ">{{item.email}}</div>
+
+      </div>
+
+      <div class="row mt-5">
+        <div class="col-md-12">
+          <form>
+            <div class="row">
+              <div class="col-md-10">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label> Subject</label>
+                      <input class="form-control" [(ngModel)]='reviewData.subject' name="subject" #subject='ngModel' type="text">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label> Rating</label> 
+                      <div>
+                      <span *ngFor='let i of ratting'>
+                        <i class="fa fa-star " (click)="review($event,i)"></i>
+                      </span>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label> Description</label>
+                  <textarea class="form-control" rows="4"  [(ngModel)]='reviewData.description' name="description" #description='ngModel'></textarea>
+                </div>
+              </div>
+              <div class="col-md-2" style="position: relative;">
+                <div class="submit">
+                  <button (click)="submit()"  class="submit_button submit-color "> submit</button>
+                  <br>
+                  <button class="submit_button "> cancel</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
