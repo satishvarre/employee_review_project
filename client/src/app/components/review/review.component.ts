@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { authService} from '../../services/auth.service'
+import { authService } from '../../services/auth.service'
 
 @Component({
   selector: 'app-review',
@@ -7,42 +7,55 @@ import { authService} from '../../services/auth.service'
   styleUrls: ['./review.component.css']
 })
 export class ReviewComponent implements OnInit {
-  public userData:any=[{name:"satya",role:"admin",email:"satishascse@gmail.com",mobile:9581665333},
-  {name:"satya",role:"admin",email:"satishascse@gmail.com",mobile:9581665333},
-  {name:"satya",role:"admin",email:"satishascse@gmail.com",mobile:9581665333},
-  {name:"satya",role:"admin",email:"satishascse@gmail.com",mobile:9581665333},
-  {name:"satya",role:"admin",email:"satishascse@gmail.com",mobile:9581665333}
-];
-public ratting:any=[0,1,2,3,4];
-public score:number;
-public reviewData:any={};
-  constructor(private authservice:authService) { }
+  public userData: any = [];
+  public ratting: any = [0, 1, 2, 3, 4];
+  public score: number;
+  public reviewData: any = {};
+  constructor(private authservice: authService) { }
 
   ngOnInit() {
+    this.getusers();
   }
-  review(event,index){
-  
-    var reviewclass:any=document.getElementsByClassName('fa-star ');
-    for(var i=0;i<this.ratting.length;i++){
-     reviewclass[i].classList.remove('rate');
+
+  getusers() {
+    this.authservice.getusers().subscribe(
+      (response: any) => {
+        this.userData = response;
+      },
+      (response: any) => {
+
+      }
+    )
+  }
+
+  empid(id) {
+    console.log(id);
+    this.reviewData._id = id;
+  }
+  review(event, index) {
+
+    var reviewclass: any = document.getElementsByClassName('fa-star ');
+    for (var i = 0; i < this.ratting.length; i++) {
+      reviewclass[i].classList.remove('rate');
     }
- 
-    for(var j=0;j<=index;j++){
+
+    for (var j = 0; j <= index; j++) {
       reviewclass[j].classList.add('rate');
     }
-   this.score=index+1;
-   }
-   submit(){
-    this.authservice.login(this.reviewData).subscribe(
+    this.score = index + 1;
+    this.reviewData.ratting=this.score;
+  }
+  submit() {
+    this.authservice.Review(this.reviewData).subscribe(
 
-      (response:any)=>{
-  
+      (response: any) => {
+        console.log(response);
       },
-      (response:any)=>{
-        
-      }
-    )   
-  
+      (response: any) => {
 
-   }
+      }
+    )
+
+
+  }
 }

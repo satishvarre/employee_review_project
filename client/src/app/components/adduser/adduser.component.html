@@ -4,7 +4,7 @@
 
     <span>
       <img src="./assets/images/Back.svg" alt="" (click)="backClicked()" style="cursor: pointer; height:18px;">
-      <span></span> &nbsp; Add Employee</span>
+      <span></span> &nbsp; <span *ngIf="iscreateMode"> Add Employee </span> <span *ngIf="!iscreateMode"> Edit Employee </span> </span>
     <span (click)="backClicked()" class="float-right" style="cursor: pointer;">&#10006;</span>
   </nav>
   <div class="container mt-3">
@@ -24,7 +24,7 @@
                 <label>
                  Email
                 </label>
-                <input type="text" [(ngModel)]="user.email" class="form-control"  name="email" #email="ngModel" required>
+                <input [disabled]='!iscreateMode' type="text" [(ngModel)]="user.email" class="form-control"  name="email" #email="ngModel" required>
                 <span style="color:red" *ngIf="email.invalid  && email.dirty">email is mandatory</span>
               </div>
         </div>
@@ -47,7 +47,7 @@
               </div>
         </div>
         <div class="col-md-4  mb-3">
-            <div class="form-group">
+            <div class="form-group" *ngIf="iscreateMode">
                 <label>
                   Employee password
                 </label>
@@ -56,7 +56,7 @@
               </div>
         </div>
         <div class="col-md-4  mb-3">
-            <div class="form-group">
+            <div class="form-group" *ngIf="iscreateMode">
                 <label>
                   Employee Retype Password
                 </label>

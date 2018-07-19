@@ -21,7 +21,7 @@
           <!-- <td>prakhar</td> -->
            <td>{{item.email}}</td>
            <td>{{item.mobile}}</td>
-           <td><span class="action">Edit</span> <span data-toggle="modal" data-target="#myModal" class="action">Delete</span></td>
+           <td><span (click)="edit(item._id)" class="action">Edit</span> <span data-toggle="modal" data-target="#myModal" class="action" (click)="ondelete(item)">Delete</span></td>
         </tr>
       </tbody>
     </table>
@@ -48,7 +48,7 @@
         <!-- Modal footer -->
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" style="background-color: gray;border-color: gray;" data-dismiss="modal">No</button>
-          <button class="btn btn-danger" data-dismiss="modal" > yes</button>
+          <button class="btn btn-danger" data-dismiss="modal" (click)="delete()" > yes</button>
         </div>
         
       </div>

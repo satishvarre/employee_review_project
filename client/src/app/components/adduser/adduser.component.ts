@@ -9,26 +9,71 @@ import { authService} from '../../services/auth.service'
 })
 export class AdduserComponent implements OnInit {
   public user:any={};
-  constructor( private _location: Location,private authservice:authService) { }
+  public queryParams:any;
+  public iscreateMode:boolean=true;
+  constructor( private _location: Location,private authservice:authService,private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.fetchId();
   }
 
 
   save(){
-    this.authservice.adduser(this.user).subscribe(
+    if(this.iscreateMode){
+    this.authservice.newuser(this.user).subscribe(
       (response:any)=>{
-
+        console.log(response);
+        this._location.back();
       },
       (response:any)=>{
         
       }
     )
-    this._location.back();
+  }
+  else{
+    this.authservice.edituser(this.user).subscribe(
+      (response:any)=>{
+        console.log(response);
+        this._location.back();
+      },
+      (response:any)=>{
+        
+      }
+    )
+
+
+  }
+   
   }
   
   backClicked() {
     this._location.back();
   }
   
+
+  fetchId() {
+    this.route
+      .queryParams
+      .subscribe(params => {
+        this.queryParams = params;
+        this.getuser(this.queryParams.id)
+          if(this.queryParams.id){
+           this.iscreateMode=false;
+          }
+      });
+  }
+  getuser(id){
+    var payload:any=
+    {};
+    payload.id=id
+   this.authservice.getuser(payload).subscribe(
+     (Response:any)=>{
+      console.log(Response);
+      this.user=Response;
+     },
+     (Response:any)=>{
+       
+    }
+   )
+  }
 }

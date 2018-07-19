@@ -5,7 +5,7 @@
         Select Employee
       </button>
       <div class="dropdown-menu">
-        <div class="dropdown-item" *ngFor=" let item of userData ">{{item.email}}</div>
+        <div class="dropdown-item" *ngFor=" let item of userData " (click)="empid(item._id)">{{item.email}}</div>
 
       </div>
 
